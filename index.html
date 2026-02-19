@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Filipino Society & Cultural Heritage</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            /* Section Color Coding */
+            --ancient-primary: #1a1a2e;
+            --ancient-accent: #e2b714;
+            --ancient-accent-light: #f5e6a3;
+            --ancient-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+
+            --women-primary: #0f172a;
+            --women-accent: #fb7185;
+            --women-accent-light: #fecdd3;
+            --women-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a2744 100%);
+
+            --ethno-primary: #042f2e;
+            --ethno-accent: #2dd4bf;
+            --ethno-accent-light: #5eead4;
+            --ethno-gradient: linear-gradient(135deg, #042f2e 0%, #134e4a 50%, #115e59 100%);
+
+            /* Highlanders — Earthy Forest Green */
+            --highland-accent: #4ade80;
+            --highland-accent-light: #86efac;
+            --highland-gradient: linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%);
+
+            /* Sea-Based — Ocean Blue */
+            --sea-accent: #38bdf8;
+            --sea-accent-light: #7dd3fc;
+            --sea-gradient: linear-gradient(135deg, #0c1a2e 0%, #0c4a6e 50%, #075985 100%);
+
+            /* Mainstream — Warm Amber */
+            --mainstream-accent: #fbbf24;
+            --mainstream-accent-light: #fcd34d;
+            --mainstream-gradient: linear-gradient(135deg, #1c1410 0%, #422006 50%, #713f12 100%);
+
+            /* Neutral */
+            --bg-dark: #0d1117;
+            --bg-card: rgba(255,255,255,0.04);
+            --bg-card-hover: rgba(255,255,255,0.08);
+            --text-primary: #e6e6e6;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666;
+            --border-subtle: rgba(255,255,255,0.06);
+
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'Fira Code', monospace;
+
+            /* Spacing */
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+        }
+
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+        /* ===== NAVIGATION ===== */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 2rem;
+            background: rgba(13,17,23,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(13,17,23,0.95);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--ancient-accent);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 2px;
+            border-radius: 1px;
+        }
+
+        .nav-links a[data-section="ancient"].active::after { background: var(--ancient-accent); }
+        .nav-links a[data-section="women"].active::after { background: var(--women-accent); }
+        .nav-links a[data-section="ethno"].active::after { background: var(--ethno-accent); }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* ===== SLIDE DOT INDICATORS ===== */
+        .slide-indicators {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .slide-dot:hover { border-color: rgba(255,255,255,0.5); }
+
+        .slide-dot.active {
+            border-color: var(--ancient-accent);
+            background: var(--ancient-accent);
+            transform: scale(1.2);
+        }
+
+        .slide-dot.active[data-theme="women"] {
+            border-color: var(--women-accent);
+            background: var(--women-accent);
+        }
+
+        .slide-dot.active[data-theme="ethno"] {
+            border-color: var(--ethno-accent);
+            background: var(--ethno-accent);
+        }
+
+        .slide-dot.active[data-theme="highland"] {
+            border-color: var(--highland-accent);
+            background: var(--highland-accent);
+        }
+
+        .slide-dot.active[data-theme="sea"] {
+            border-color: var(--sea-accent);
+            background: var(--sea-accent);
+        }
+
+        .slide-dot.active[data-theme="mainstream"] {
+            border-color: var(--mainstream-accent);
+            background: var(--mainstream-accent);
+        }
+
+        .slide-dot .tooltip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .slide-dot:hover .tooltip { opacity: 1; }
+
+        /* ===== SLIDE BASE ===== */
+        .slide {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--slide-padding);
+            padding-top: calc(var(--slide-padding) + 3rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ===== SLIDE BACKGROUNDS ===== */
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .badge-ancient { background: rgba(226,183,20,0.12); color: var(--ancient-accent); border: 1px solid rgba(226,183,20,0.2); }
+        .badge-women { background: rgba(251,113,133,0.12); color: var(--women-accent); border: 1px solid rgba(251,113,133,0.2); }
+        .badge-ethno { background: rgba(45,212,191,0.12); color: var(--ethno-accent); border: 1px solid rgba(45,212,191,0.2); }
+        .badge-highland { background: rgba(74,222,128,0.12); color: var(--highland-accent); border: 1px solid rgba(74,222,128,0.2); }
+        .badge-sea { background: rgba(56,189,248,0.12); color: var(--sea-accent); border: 1px solid rgba(56,189,248,0.2); }
+        .badge-mainstream { background: rgba(251,191,36,0.12); color: var(--mainstream-accent); border: 1px solid rgba(251,191,36,0.2); }
+
+        .slide-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .slide-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== HERO SLIDE ===== */
+        #hero {
+            background: var(--ancient-gradient);
+            text-align: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(226,183,20,0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(15,52,96,0.3) 0%, transparent 50%);
+        }
+
+        #hero > * { position: relative; z-index: 1; }
+
+        .hero-overline {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--ancient-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--ancient-accent-light) 50%, var(--ancient-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-sections {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-section-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 220px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-section-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .hero-section-card i {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .hero-section-card h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-section-card p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .card-ancient i { color: var(--ancient-accent); }
+        .card-women i { color: var(--women-accent); }
+        .card-ethno i { color: var(--ethno-accent); }
+
+        /* ===== CONTENT CARDS / GRID ===== */
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .card-accent-gold::before { background: linear-gradient(90deg, var(--ancient-accent), transparent); }
+        .card-accent-pink::before { background: linear-gradient(90deg, var(--women-accent), transparent); }
+        .card-accent-green::before { background: linear-gradient(90deg, var(--ethno-accent), transparent); }
+        .card-accent-highland::before { background: linear-gradient(90deg, var(--highland-accent), transparent); }
+        .card-accent-sea::before { background: linear-gradient(90deg, var(--sea-accent), transparent); }
+        .card-accent-mainstream::before { background: linear-gradient(90deg, var(--mainstream-accent), transparent); }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .icon-gold { background: rgba(226,183,20,0.12); color: var(--ancient-accent); }
+        .icon-pink { background: rgba(251,113,133,0.12); color: var(--women-accent); }
+        .icon-green { background: rgba(45,212,191,0.12); color: var(--ethno-accent); }
+        .icon-highland { background: rgba(74,222,128,0.12); color: var(--highland-accent); }
+        .icon-sea { background: rgba(56,189,248,0.12); color: var(--sea-accent); }
+        .icon-mainstream { background: rgba(251,191,36,0.12); color: var(--mainstream-accent); }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-text {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .card-text ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .card-text ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.85rem;
+        }
+
+        .card-text ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .card-accent-gold .card-text ul li::before { background: var(--ancient-accent); }
+        .card-accent-pink .card-text ul li::before { background: var(--women-accent); }
+        .card-accent-green .card-text ul li::before { background: var(--ethno-accent); }
+        .card-accent-highland .card-text ul li::before { background: var(--highland-accent); }
+        .card-accent-sea .card-text ul li::before { background: var(--sea-accent); }
+        .card-accent-mainstream .card-text ul li::before { background: var(--mainstream-accent); }
+
+        /* ===== HIERARCHY / PYRAMID ===== */
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
+        }
+
+        .pyramid-level:hover {
+            transform: scale(1.03);
+        }
+
+        .pyramid-level .level-rank {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--ancient-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pyramid-level .level-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .pyramid-level .level-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .lvl-1 {
+            width: 50%;
+            background: linear-gradient(135deg, rgba(226,183,20,0.2), rgba(226,183,20,0.05));
+            border: 1px solid rgba(226,183,20,0.3);
+        }
+
+        .lvl-2 {
+            width: 62%;
+            background: linear-gradient(135deg, rgba(226,183,20,0.14), rgba(226,183,20,0.03));
+            border: 1px solid rgba(226,183,20,0.2);
+        }
+
+        .lvl-3 {
+            width: 74%;
+            background: linear-gradient(135deg, rgba(226,183,20,0.1), rgba(226,183,20,0.02));
+            border: 1px solid rgba(226,183,20,0.15);
+        }
+
+        .lvl-4 {
+            width: 86%;
+            background: linear-gradient(135deg, rgba(226,183,20,0.06), rgba(226,183,20,0.01));
+            border: 1px solid rgba(226,183,20,0.1);
+        }
+
+        /* ===== TWO COLUMN LAYOUT ===== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .two-col-text { max-width: 560px; }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--ancient-accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 3px solid var(--ancient-accent);
+        }
+
+        .timeline-item h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===== WOMEN SECTION SPECIAL STYLES ===== */
+        .role-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(251,113,133,0.08);
+            border-left: 3px solid var(--women-accent);
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .role-highlight:hover {
+            background: rgba(251,113,133,0.15);
+            transform: translateX(4px);
+        }
+
+        .role-highlight i {
+            color: var(--women-accent);
+            font-size: 1.1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .role-highlight h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #f0f0f0;
+        }
+
+        .role-highlight p {
+            font-size: 0.85rem;
+            color: #c8d0d8;
+        }
+
+        /* ===== BABAYLAN FEATURE ===== */
+        .babaylan-feature {
+            background: linear-gradient(135deg, rgba(30,41,59,0.6), rgba(251,113,133,0.12));
+            border: 1px solid rgba(251,113,133,0.25);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .babaylan-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(251,113,133,0.06) 0%, transparent 50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .babaylan-feature > * { position: relative; z-index: 1; }
+
+        .babaylan-icon-large {
+            font-size: 3rem;
+            color: var(--women-accent);
+            margin-bottom: 1rem;
+        }
+
+        .babaylan-feature h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #f0f0f0;
+        }
+
+        .babaylan-feature .subtitle {
+            color: var(--women-accent-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .babaylan-feature p {
+            color: #c8d0d8;
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ===== ETHNO MAP SECTION ===== */
+        .map-container {
+            background: rgba(0,184,148,0.03);
+            border: 1px solid rgba(0,184,148,0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .ph-map-svg {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+        }
+
+        .map-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.2rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .legend-item:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateX(4px);
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-item h4 { font-size: 0.9rem; font-weight: 600; }
+        .legend-item p { font-size: 0.78rem; color: var(--text-secondary); }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+
+        .comparison-table thead th {
+            background: rgba(0,184,148,0.08);
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ethno-accent);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .comparison-table tbody td {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        .comparison-table tbody tr:last-child td { border-bottom: none; }
+
+        .comparison-table tbody tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .comparison-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ===== STAT PILL ===== */
+        .stat-pills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .stat-pill i {
+            font-size: 0.9rem;
+        }
+
+        .stat-pill span {
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        /* ===== KEY TAKEAWAY / SUMMARY CALLOUT ===== */
+        .takeaway-box {
+            background: linear-gradient(135deg, rgba(226,183,20,0.06), rgba(0,184,148,0.06));
+            border: 1px solid rgba(226,183,20,0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .takeaway-box h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .takeaway-box h4 i { color: var(--ancient-accent); }
+
+        .takeaway-box p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-slide {
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem;
+        }
+
+        .footer-slide h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-slide p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 500px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-credits {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== SLIDE-IN ANIMATIONS (Intersection Observer) ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ancient-accent), var(--women-accent), var(--ethno-accent));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        /* ===== KEY FIGURE BADGE ===== */
+        .key-figure {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(226,183,20,0.08);
+            border: 1px solid rgba(226,183,20,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin: 0.25rem;
+        }
+
+        .key-figure i { color: var(--ancient-accent); }
+
+        /* ===== SLIDE SECTION DIVIDER ===== */
+        .section-divider {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            scroll-snap-align: start;
+            padding: 2rem;
+        }
+
+        .section-divider .divider-number {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-divider p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+        }
+
+        .section-divider .divider-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== FLOATING DECORATIVE ELEMENTS ===== */
+        .float-decoration {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(13,17,23,0.95);
+                backdrop-filter: blur(20px);
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .pyramid-level { width: 95% !important; }
+
+            .slide-indicators { display: none; }
+
+            .hero-sections { flex-direction: column; align-items: center; }
+
+            .content-grid.grid-3,
+            .content-grid.grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root { --slide-padding: 1.2rem; }
+            .slide-title { font-size: 1.8rem; }
+        }
+
+        /* ===== ETHNO GROUP ICONS STRIP ===== */
+        .icon-strip {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .icon-strip-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .icon-strip-item .icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-strip-item .icon-circle:hover {
+            transform: scale(1.15);
+        }
+
+        .icon-strip-item span {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* ===== ETHNO SUB-GROUP COLOR OVERRIDES ===== */
+
+        /* Highlanders — Forest Green */
+        #highlanders .section-badge { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; border-color: rgba(74,222,128,0.2) !important; }
+        #highlanders .slide-subtitle strong { color: var(--highland-accent); }
+        #highlanders .info-card::before { background: linear-gradient(90deg, var(--highland-accent), transparent) !important; }
+        #highlanders .info-card .card-icon { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; }
+        #highlanders .card-text ul li::before { background: var(--highland-accent) !important; }
+        #highlanders h3[style] { color: var(--highland-accent) !important; }
+        #highlanders .icon-circle { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; }
+        #highlanders .takeaway-box { border-color: rgba(74,222,128,0.2) !important; background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(22,101,52,0.06)) !important; }
+        #highlanders .takeaway-box h4 i { color: var(--highland-accent) !important; }
+
+        /* Sea-Based — Ocean Blue */
+        #sea-based .section-badge { background: rgba(56,189,248,0.12) !important; color: var(--sea-accent) !important; border-color: rgba(56,189,248,0.2) !important; }
+        #sea-based .slide-subtitle strong { color: var(--sea-accent); }
+        #sea-based .info-card::before { background: linear-gradient(90deg, var(--sea-accent), transparent) !important; }
+        #sea-based .info-card .card-icon { background: rgba(56,189,248,0.12) !important; color: var(--sea-accent) !important; }
+        #sea-based .card-text ul li::before { background: var(--sea-accent) !important; }
+        #sea-based h3[style] { color: var(--sea-accent) !important; }
+        #sea-based .icon-circle { background: rgba(56,189,248,0.15) !important; color: #7dd3fc !important; }
+
+        /* Mainstream — Warm Amber */
+        #mainstream .section-badge { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; border-color: rgba(251,191,36,0.2) !important; }
+        #mainstream .slide-subtitle strong { color: var(--mainstream-accent); }
+        #mainstream .info-card::before { background: linear-gradient(90deg, var(--mainstream-accent), transparent) !important; }
+        #mainstream .info-card .card-icon { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; }
+        #mainstream .card-text ul li::before { background: var(--mainstream-accent) !important; }
+        #mainstream h3[style] { color: var(--mainstream-accent) !important; }
+        #mainstream .icon-circle { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; }
+
+        /* Comparison table — color-coded column headers */
+        .comparison-table thead th:nth-child(2) { color: var(--highland-accent) !important; }
+        .comparison-table thead th:nth-child(3) { color: var(--sea-accent) !important; }
+        .comparison-table thead th:nth-child(4) { color: var(--mainstream-accent) !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-logo"><i class="fa-solid fa-landmark-dome"></i> PICPE-PIT</div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero" data-section="ancient" class="active">Home</a></li>
+            <li><a href="#political" data-section="ancient">Political</a></li>
+            <li><a href="#economic" data-section="ancient">Economic</a></li>
+            <li><a href="#laws" data-section="ancient">Laws</a></li>
+            <li><a href="#women-intro" data-section="women">Women</a></li>
+            <li><a href="#babaylan" data-section="women">Babaylan</a></li>
+            <li><a href="#ethno-intro" data-section="ethno">Ethno Groups</a></li>
+            <li><a href="#comparison" data-section="ethno">Comparison</a></li>
+            <li><a href="#references" data-section="ancient">References</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slide Dot Indicators -->
+    <div class="slide-indicators" id="slideIndicators">
+        <div class="slide-dot active" data-target="hero" data-theme="ancient"><span class="tooltip">Home</span></div>
+        <div class="slide-dot" data-target="ancient-intro" data-theme="ancient"><span class="tooltip">Ancient Society</span></div>
+        <div class="slide-dot" data-target="political" data-theme="ancient"><span class="tooltip">Political Structure</span></div>
+        <div class="slide-dot" data-target="economic" data-theme="ancient"><span class="tooltip">Economy</span></div>
+        <div class="slide-dot" data-target="laws" data-theme="ancient"><span class="tooltip">Laws & Justice</span></div>
+        <div class="slide-dot" data-target="women-intro" data-theme="women"><span class="tooltip">Women's Roles</span></div>
+        <div class="slide-dot" data-target="women-rights" data-theme="women"><span class="tooltip">Rights & Influence</span></div>
+        <div class="slide-dot" data-target="babaylan" data-theme="women"><span class="tooltip">Babaylan</span></div>
+        <div class="slide-dot" data-target="ethno-intro" data-theme="ethno"><span class="tooltip">Ethno Groups</span></div>
+        <div class="slide-dot" data-target="highlanders" data-theme="highland"><span class="tooltip">Highlanders</span></div>
+        <div class="slide-dot" data-target="sea-based" data-theme="sea"><span class="tooltip">Sea-Based</span></div>
+        <div class="slide-dot" data-target="mainstream" data-theme="mainstream"><span class="tooltip">Mainstream</span></div>
+        <div class="slide-dot" data-target="comparison" data-theme="ethno"><span class="tooltip">Comparison</span></div>
+        <div class="slide-dot" data-target="summary" data-theme="ancient"><span class="tooltip">Summary</span></div>
+        <div class="slide-dot" data-target="references" data-theme="ancient"><span class="tooltip">References</span></div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- SLIDE 1: HERO -->
+    <!-- ========================================= -->
+    <section class="slide" id="hero">
+        <div class="hero-overline reveal">Philippine Indigenous Communities & Peace Education</div>
+        <h1 class="hero-title reveal delay-1">Ancient Filipino Society<br>& Cultural Heritage</h1>
+        <p class="hero-desc reveal delay-2">
+            A visual presentation summarizing key information on ancient Filipino society, 
+            the role of women in pre-colonial communities, and the ethnolinguistic diversity 
+            of Indigenous Peoples across the Philippine archipelago.
+        </p>
+        <div class="hero-sections reveal delay-3">
+            <a href="#ancient-intro" class="hero-section-card card-ancient" style="text-decoration:none; color:inherit;">
+                <i class="fa-solid fa-landmark"></i>
+                <h3>Ancient Society</h3>
+                <p>Governance, economy & laws</p>
+            </a>
+            <a href="#women-intro" class="hero-section-card card-women" style="text-decoration:none; color:inherit;">
+                <i class="fa-solid fa-venus"></i>
+                <h3>Role of Women</h3>
+                <p>Rights, influence & spiritual power</p>
+            </a>
+            <a href="#ethno-intro" class="hero-section-card card-ethno" style="text-decoration:none; color:inherit;">
+                <i class="fa-solid fa-earth-asia"></i>
+                <h3>Ethnolinguistic Groups</h3>
+                <p>Highlanders, sea-based & mainstream</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION DIVIDER: ANCIENT SOCIETY -->
+    <!-- ========================================= -->
+    <section class="slide section-divider" id="ancient-intro" style="background: var(--ancient-gradient);">
+        <div class="float-decoration" style="width:300px;height:300px;background:var(--ancient-accent);top:10%;right:10%;"></div>
+        <div class="divider-icon reveal" style="color: var(--ancient-accent);"><i class="fa-solid fa-scroll"></i></div>
+        <div class="divider-number reveal delay-1" style="color: var(--ancient-accent);">Section A</div>
+        <h2 class="reveal delay-2">Ancient Filipino Society</h2>
+        <p class="reveal delay-3">
+            Before colonial contact, Filipinos lived in well-organized communities called <strong>barangays</strong>, 
+            with sophisticated governance, thriving economies, and customary laws rooted in communal values.
+        </p>
+        <div class="stat-pills reveal delay-4">
+            <div class="stat-pill"><i class="fa-solid fa-crown" style="color:var(--ancient-accent)"></i><span>Political Structure</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-wheat-awn" style="color:var(--ancient-accent)"></i><span>Economic Activities</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-scale-balanced" style="color:var(--ancient-accent)"></i><span>Laws & Justice</span></div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: POLITICAL STRUCTURE -->
+    <!-- ========================================= -->
+    <section class="slide" id="political" style="background: var(--ancient-gradient);">
+        <div class="float-decoration" style="width:400px;height:400px;background:var(--ancient-accent);bottom:-10%;left:-5%;"></div>
+        <div class="section-badge badge-ancient reveal"><i class="fa-solid fa-landmark"></i> Political Structure</div>
+        <h2 class="slide-title reveal delay-1">The Barangay System</h2>
+        <p class="slide-subtitle reveal delay-2">
+            The barangay was the basic political unit, led by a <strong>datu</strong> who served as chief executive, 
+            legislator, judge, and military leader. Leadership was hereditary but sustained through wisdom, bravery, and fairness.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--ancient-accent);">
+                    <i class="fa-solid fa-layer-group"></i> Social Hierarchy
+                </h3>
+                <div class="pyramid-container">
+                    <div class="pyramid-level lvl-1">
+                        <div>
+                            <div class="level-rank"><i class="fa-solid fa-crown"></i> Highest</div>
+                            <div class="level-title">Datu</div>
+                            <div class="level-desc">Ruler & Chieftain — supreme authority</div>
+                        </div>
+                    </div>
+                    <div class="pyramid-level lvl-2">
+                        <div>
+                            <div class="level-rank"><i class="fa-solid fa-shield-halved"></i> Noble</div>
+                            <div class="level-title">Maharlika</div>
+                            <div class="level-desc">Noble warriors who advised the datu</div>
+                        </div>
+                    </div>
+                    <div class="pyramid-level lvl-3">
+                        <div>
+                            <div class="level-rank"><i class="fa-solid fa-user"></i> Free</div>
+                            <div class="level-title">Timawa</div>
+                            <div class="level-desc">Free commoners who paid tribute</div>
+                        </div>
+                    </div>
+                    <div class="pyramid-level lvl-4">
+                        <div>
+                            <div class="level-rank"><i class="fa-solid fa-link"></i> Dependent</div>
+                            <div class="level-title">Alipin</div>
+                            <div class="level-desc">Dependents — namamahay & sagigilid</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <div class="content-grid" style="gap: 1rem;">
+                    <div class="info-card card-accent-gold">
+                        <div class="card-icon icon-gold"><i class="fa-solid fa-crown"></i></div>
+                        <h3 class="card-title">The Datu</h3>
+                        <div class="card-text">
+                            Served as <strong>chief executive, legislator, judge, and military commander</strong>. 
+                            Authority was based on merit and community trust, not just birthright.
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-gold">
+                        <div class="card-icon icon-gold"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3 class="card-title">Maharlika</h3>
+                        <div class="card-text">
+                            The noble warrior class who assisted the datu in governance, warfare, and community leadership.
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-gold">
+                        <div class="card-icon icon-gold"><i class="fa-solid fa-people-group"></i></div>
+                        <h3 class="card-title">Timawa & Alipin</h3>
+                        <div class="card-text">
+                            <strong>Timawa</strong> were free commoners paying tribute. <strong>Alipin</strong> were dependents, 
+                            classified as <em>namamahay</em> (household) and <em>sagigilid</em> (full service).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: ECONOMIC ACTIVITIES -->
+    <!-- ========================================= -->
+    <section class="slide" id="economic" style="background: var(--ancient-gradient);">
+        <div class="float-decoration" style="width:350px;height:350px;background:var(--ancient-accent);top:5%;right:-5%;"></div>
+        <div class="section-badge badge-ancient reveal"><i class="fa-solid fa-coins"></i> Economic Activities</div>
+        <h2 class="slide-title reveal delay-1">Sustaining the Community</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Ancient Filipinos practiced a subsistence-based economy closely connected to their natural environment. 
+            Economic cooperation reflected strong values of unity and mutual support.
+        </p>
+
+        <div class="content-grid grid-4 reveal delay-3">
+            <div class="info-card card-accent-gold">
+                <div class="card-icon icon-gold"><i class="fa-solid fa-seedling"></i></div>
+                <h3 class="card-title">Agriculture</h3>
+                <div class="card-text">
+                    <ul>
+                        <li>Rice farming as primary activity</li>
+                        <li>Lowland wet-rice cultivation</li>
+                        <li><em>Kaingin</em> (slash-and-burn) in uplands</li>
+                        <li>Root crops & vegetables</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card card-accent-gold">
+                <div class="card-icon icon-gold"><i class="fa-solid fa-fish"></i></div>
+                <h3 class="card-title">Fishing & Seafaring</h3>
+                <div class="card-text">
+                    <ul>
+                        <li>Coastal communities relied on fishing</li>
+                        <li>Skilled boat-making (<em>balangay</em>)</li>
+                        <li>Expert navigation & sailing</li>
+                        <li>Maritime trade routes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card card-accent-gold">
+                <div class="card-icon icon-gold"><i class="fa-solid fa-campground"></i></div>
+                <h3 class="card-title">Hunting & Gathering</h3>
+                <div class="card-text">
+                    <ul>
+                        <li>Hunted wild animals</li>
+                        <li>Gathered fruits & roots</li>
+                        <li>Forest products for food</li>
+                        <li>Materials for trade</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card card-accent-gold">
+                <div class="card-icon icon-gold"><i class="fa-solid fa-handshake"></i></div>
+                <h3 class="card-title">Trade & Commerce</h3>
+                <div class="card-text">
+                    <ul>
+                        <li>Barter as dominant system</li>
+                        <li>Traded gold, pottery, pearls</li>
+                        <li>Textiles & handicrafts</li>
+                        <li>Partners: China, India, Arabia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="takeaway-box reveal delay-4">
+            <h4><i class="fa-solid fa-lightbulb"></i> Key Insight</h4>
+            <p>
+                Economic activities varied by geography — lowlands focused on agriculture, coastal areas on fishing, 
+                and uplands on hunting and gathering. Shared labor practices reflected deep communal values of 
+                <strong>unity and mutual support</strong> (Bayanihan spirit).
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: LAWS & JUSTICE -->
+    <!-- ========================================= -->
+    <section class="slide" id="laws" style="background: var(--ancient-gradient);">
+        <div class="float-decoration" style="width:300px;height:300px;background:var(--ancient-accent);bottom:10%;left:5%;"></div>
+        <div class="section-badge badge-ancient reveal"><i class="fa-solid fa-scale-balanced"></i> Laws & Justice</div>
+        <h2 class="slide-title reveal delay-1">Customary Laws & Governance</h2>
+        <p class="slide-subtitle reveal delay-2">
+            A decentralized system of justice that highlighted the <strong>democratic and communal</strong> nature of ancient Filipino political life.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4><i class="fa-solid fa-book-open" style="color:var(--ancient-accent); margin-right: 0.5rem;"></i> Oral Tradition</h4>
+                        <p>Laws were customary, passed down orally through generations — not written codes but living traditions upheld by community consensus.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fa-solid fa-gavel" style="color:var(--ancient-accent); margin-right: 0.5rem;"></i> Dispute Resolution</h4>
+                        <p>Disputes were settled by the <strong>datu</strong> or a <strong>council of elders</strong>, ensuring fair and community-centered justice.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fa-solid fa-hand-holding-heart" style="color:var(--ancient-accent); margin-right: 0.5rem;"></i> Restorative Punishments</h4>
+                        <p>Punishments depended on severity and social status, often involving <strong>fines, restitution, or community service</strong> rather than imprisonment.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4><i class="fa-solid fa-users" style="color:var(--ancient-accent); margin-right: 0.5rem;"></i> Communal Values</h4>
+                        <p>Justice was rooted in restoring harmony within the community, emphasizing cooperation over punishment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <div class="info-card card-accent-gold" style="text-align:center; padding: 2.5rem;">
+                    <i class="fa-solid fa-scale-balanced" style="font-size: 3rem; color: var(--ancient-accent); margin-bottom: 1.2rem;"></i>
+                    <h3 class="card-title" style="font-size: 1.4rem;">Democratic by Nature</h3>
+                    <div class="card-text" style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        <p>The decentralized governance system of ancient Filipino communities — 
+                        where leaders ruled by merit and disputes were resolved through dialogue — 
+                        reflects a deeply <strong>democratic and egalitarian</strong> society long before colonial influence.</p>
+                    </div>
+                    <div class="stat-pills" style="justify-content: center; margin-top: 1.5rem;">
+                        <div class="stat-pill"><i class="fa-solid fa-handshake" style="color:var(--ancient-accent)"></i><span>Consensus-based</span></div>
+                        <div class="stat-pill"><i class="fa-solid fa-shield-halved" style="color:var(--ancient-accent)"></i><span>Merit-based leadership</span></div>
+                        <div class="stat-pill"><i class="fa-solid fa-heart" style="color:var(--ancient-accent)"></i><span>Restorative justice</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION DIVIDER: ROLE OF WOMEN -->
+    <!-- ========================================= -->
+    <section class="slide section-divider" id="women-intro" style="background: var(--women-gradient);">
+        <div class="float-decoration" style="width:350px;height:350px;background:var(--women-accent);bottom:5%;right:15%;"></div>
+        <div class="divider-icon reveal" style="color: var(--women-accent);"><i class="fa-solid fa-venus"></i></div>
+        <div class="divider-number reveal delay-1" style="color: var(--women-accent);">Section B</div>
+        <h2 class="reveal delay-2">Role of Women</h2>
+        <p class="reveal delay-3">
+            One of the most notable features of ancient Filipino culture was the <strong>high status of women</strong>. 
+            Unlike many societies of the same period, women enjoyed social, political, and economic equality.
+        </p>
+        <div class="stat-pills reveal delay-4">
+            <div class="stat-pill"><i class="fa-solid fa-house" style="color:var(--women-accent)"></i><span>Property Rights</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-store" style="color:var(--women-accent)"></i><span>Trade & Economy</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-star-of-life" style="color:var(--women-accent)"></i><span>Spiritual Leadership</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-ring" style="color:var(--women-accent)"></i><span>Marriage Equality</span></div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: WOMEN'S RIGHTS & INFLUENCE -->
+    <!-- ========================================= -->
+    <section class="slide" id="women-rights" style="background: var(--women-gradient);">
+        <div class="float-decoration" style="width:300px;height:300px;background:var(--women-accent);top:10%;left:-5%;"></div>
+        <div class="section-badge badge-women reveal"><i class="fa-solid fa-venus"></i> Rights & Influence</div>
+        <h2 class="slide-title reveal delay-1">Women as Equal Partners</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Women were regarded as <strong>partners rather than subordinates</strong>. Marriage was viewed as a partnership, 
+            and family decisions were often made jointly — revealing progressive values unique for the era.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--women-accent);">
+                    <i class="fa-solid fa-star"></i> Rights & Roles
+                </h3>
+                <div class="role-highlight">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <div>
+                        <h4>Property Ownership</h4>
+                        <p>Women could own property and inherit wealth independently, ensuring financial autonomy.</p>
+                    </div>
+                </div>
+                <div class="role-highlight">
+                    <i class="fa-solid fa-store"></i>
+                    <div>
+                        <h4>Economic Participation</h4>
+                        <p>Actively engaged in farming, weaving, trading, and marketplace activities as equals.</p>
+                    </div>
+                </div>
+                <div class="role-highlight">
+                    <i class="fa-solid fa-ring"></i>
+                    <div>
+                        <h4>Marital Freedom</h4>
+                        <p>Had the right to choose their spouse and could initiate divorce — a rare privilege in ancient societies.</p>
+                    </div>
+                </div>
+                <div class="role-highlight">
+                    <i class="fa-solid fa-landmark-flag"></i>
+                    <div>
+                        <h4>Leadership Roles</h4>
+                        <p>Women could lead communities and participate in decision-making processes alongside men.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <div class="content-grid" style="gap: 1rem;">
+                    <div class="info-card card-accent-pink" style="text-align: center; padding: 2rem;">
+                        <i class="fa-solid fa-scale-balanced" style="font-size: 2.5rem; color: var(--women-accent); margin-bottom: 1rem;"></i>
+                        <h3 class="card-title" style="font-size: 1.3rem;">Progressive Equality</h3>
+                        <div class="card-text">
+                            <p>Ancient Filipino society demonstrated a level of gender equality that was remarkably 
+                            <strong>progressive</strong> compared to many contemporary civilizations across the world.</p>
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-pink">
+                        <div class="card-icon icon-pink"><i class="fa-solid fa-heart"></i></div>
+                        <h3 class="card-title">Partnership in Marriage</h3>
+                        <div class="card-text">
+                            Marriage was viewed as an <strong>equal partnership</strong>. Family decisions were made jointly, 
+                            and both husband and wife contributed to the household economy and social standing.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: BABAYLAN -->
+    <!-- ========================================= -->
+    <section class="slide" id="babaylan" style="background: var(--women-gradient);">
+        <div class="float-decoration" style="width:400px;height:400px;background:var(--women-accent);top:-10%;right:-10%;"></div>
+        <div class="section-badge badge-women reveal"><i class="fa-solid fa-star-of-life"></i> Spiritual & Social Roles</div>
+        <h2 class="slide-title reveal delay-1">The Babaylan</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Women often served as <strong>babaylan</strong> — spiritual leaders, healers, and ritual specialists — 
+            holding authority that sometimes surpassed even the datu in spiritual matters.
+        </p>
+
+        <div class="content-grid grid-2 reveal delay-3">
+            <div class="babaylan-feature">
+                <div class="babaylan-icon-large"><i class="fa-solid fa-sun"></i></div>
+                <h3>Babaylan</h3>
+                <div class="subtitle">Spiritual Leader · Healer · Ritual Specialist</div>
+                <p>
+                    The babaylan held great authority and respect in pre-colonial Filipino communities. 
+                    As spiritual intermediaries, they guided rituals, healed the sick, and maintained the 
+                    balance between the physical and spiritual worlds.
+                </p>
+                <div class="stat-pills" style="justify-content: center; margin-top: 1.5rem;">
+                    <div class="stat-pill"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--women-accent)"></i><span>Ritual Leader</span></div>
+                    <div class="stat-pill"><i class="fa-solid fa-hand-holding-medical" style="color:var(--women-accent)"></i><span>Healer</span></div>
+                    <div class="stat-pill"><i class="fa-solid fa-eye" style="color:var(--women-accent)"></i><span>Spirit Medium</span></div>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="info-card card-accent-pink">
+                    <div class="card-icon icon-pink"><i class="fa-solid fa-star"></i></div>
+                    <h3 class="card-title">Spiritual Authority</h3>
+                    <div class="card-text">
+                        The babaylan's authority in spiritual matters sometimes <strong>surpassed the datu's</strong>. 
+                        They were the bridge between the community and the spirit world, essential for harmony.
+                    </div>
+                </div>
+                <div class="info-card card-accent-pink">
+                    <div class="card-icon icon-pink"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h3 class="card-title">Social Harmony</h3>
+                    <div class="card-text">
+                        Beyond spiritual duties, the babaylan played a central role in maintaining 
+                        <strong>social harmony and cultural traditions</strong>, guiding the community through life events 
+                        and mediating conflicts.
+                    </div>
+                </div>
+                <div class="info-card card-accent-pink">
+                    <div class="card-icon icon-pink"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <h3 class="card-title">Cultural Preservation</h3>
+                    <div class="card-text">
+                        As keepers of oral tradition, the babaylan preserved myths, legends, and customary practices, 
+                        ensuring cultural continuity across generations.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SECTION DIVIDER: ETHNOLINGUISTIC GROUPS -->
+    <!-- ========================================= -->
+    <section class="slide section-divider" id="ethno-intro" style="background: var(--ethno-gradient);">
+        <div class="float-decoration" style="width:350px;height:350px;background:var(--ethno-accent);top:15%;left:10%;"></div>
+        <div class="divider-icon reveal" style="color: var(--ethno-accent);"><i class="fa-solid fa-earth-asia"></i></div>
+        <div class="divider-number reveal delay-1" style="color: var(--ethno-accent);">Section C</div>
+        <h2 class="reveal delay-2">Ethnolinguistic Groups</h2>
+        <p class="reveal delay-3">
+            The Philippines is home to a wide range of ethnolinguistic groups whose identities are shaped by 
+            <strong>geography, language, livelihood, and cultural traditions</strong>.
+        </p>
+        <div class="stat-pills reveal delay-4">
+            <div class="stat-pill"><i class="fa-solid fa-mountain" style="color:var(--highland-accent)"></i><span>Highlanders</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-water" style="color:var(--sea-accent)"></i><span>Sea-Based Groups</span></div>
+            <div class="stat-pill"><i class="fa-solid fa-city" style="color:var(--mainstream-accent)"></i><span>Mainstream Groups</span></div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: HIGHLANDERS -->
+    <!-- ========================================= -->
+    <section class="slide" id="highlanders" style="background: var(--highland-gradient);">
+        <div class="float-decoration" style="width:300px;height:300px;background:var(--highland-accent);bottom:5%;right:5%;"></div>
+        <div class="section-badge badge-ethno reveal"><i class="fa-solid fa-mountain"></i> Highlanders</div>
+        <h2 class="slide-title reveal delay-1">Mountain & Upland Peoples</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Indigenous peoples residing in mountainous and upland areas, primarily in the <strong>Cordillera (Northern Luzon)</strong> 
+            and <strong>interior regions of Mindanao</strong>, deeply connected to their ancestral lands.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <div class="content-grid" style="gap: 1rem;">
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
+                        <h3 class="card-title">Geographic Distribution</h3>
+                        <div class="card-text">
+                            <ul>
+                                <li>Cordillera Administrative Region (CAR)</li>
+                                <li>Interior regions of Mindanao</li>
+                                <li>Mountain ranges & upland plateaus</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-masks-theater"></i></div>
+                        <h3 class="card-title">Cultural Characteristics</h3>
+                        <div class="card-text">
+                            <ul>
+                                <li>Terraced & upland rice farming</li>
+                                <li>Strong clan & kinship systems</li>
+                                <li>Oral traditions & indigenous beliefs</li>
+                                <li>Traditional attire, music & dances</li>
+                                <li>Communal labor & decision-making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 1rem; color: var(--ethno-accent);">
+                    <i class="fa-solid fa-users"></i> Notable Highland Groups
+                </h3>
+                <div class="icon-strip">
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-mountain-sun"></i></div>
+                        <span>Ifugao</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-mountain"></i></div>
+                        <span>Bontoc</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-shield"></i></div>
+                        <span>Kalinga</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-gem"></i></div>
+                        <span>Ibaloi</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-tree"></i></div>
+                        <span>Manobo</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-palette"></i></div>
+                        <span>T'boli</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-drum"></i></div>
+                        <span>Bagobo</span>
+                    </div>
+                </div>
+
+                <div class="takeaway-box" style="margin-top: 2rem; border-color: rgba(0,184,148,0.2); background: linear-gradient(135deg, rgba(0,184,148,0.06), rgba(0,100,80,0.06));">
+                    <h4><i class="fa-solid fa-quote-left" style="color: var(--ethno-accent);"></i> Ancestral Land</h4>
+                    <p>
+                        Highland groups are known for their <strong>strong attachment to ancestral lands</strong>, 
+                        which they consider sacred. Communities are usually small and kinship-based, 
+                        reflecting values of <strong>cooperation and respect for elders</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: SEA-BASED GROUPS -->
+    <!-- ========================================= -->
+    <section class="slide" id="sea-based" style="background: var(--sea-gradient);">
+        <div class="float-decoration" style="width:350px;height:350px;background:var(--sea-accent);top:-5%;left:-5%;"></div>
+        <div class="section-badge badge-ethno reveal"><i class="fa-solid fa-water"></i> Sea-Based Groups</div>
+        <h2 class="slide-title reveal delay-1">Maritime & Coastal Peoples</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Sea-based groups live along coastal areas and small islands, particularly in <strong>Southern Mindanao</strong>, 
+            the <strong>Sulu Archipelago</strong>, and <strong>coastal Visayas</strong>.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 1rem; color: var(--ethno-accent);">
+                    <i class="fa-solid fa-anchor"></i> Prominent Sea-Based Groups
+                </h3>
+                <div class="icon-strip" style="margin-bottom: 1.5rem;">
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-sailboat"></i></div>
+                        <span>Badjao</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-ship"></i></div>
+                        <span>Sama</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-anchor"></i></div>
+                        <span>Tausug</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-dharmachakra"></i></div>
+                        <span>Yakan</span>
+                    </div>
+                </div>
+
+                <div class="info-card card-accent-green">
+                    <div class="card-icon" style="background: rgba(9,132,227,0.12); color: #74b9ff;"><i class="fa-solid fa-water"></i></div>
+                    <h3 class="card-title">Sea Nomads</h3>
+                    <div class="card-text">
+                        <p>Some communities, such as the <strong>Badjao</strong>, are traditionally known as "sea nomads" — 
+                        spending much of their lives on boats and depending entirely on marine resources for survival. 
+                        They represent one of the most unique maritime cultures in Southeast Asia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <div class="content-grid" style="gap: 1rem;">
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-fish"></i></div>
+                        <h3 class="card-title">Key Characteristics</h3>
+                        <div class="card-text">
+                            <ul>
+                                <li>Fishing, diving & boat-making as primary livelihoods</li>
+                                <li>Strong maritime skills & sea knowledge</li>
+                                <li>Close-knit family structures</li>
+                                <li>Ocean-centered rituals & traditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-location-dot"></i></div>
+                        <h3 class="card-title">Geographic Distribution</h3>
+                        <div class="card-text">
+                            <ul>
+                                <li>Southern Mindanao coastlines</li>
+                                <li>Sulu Archipelago islands</li>
+                                <li>Coastal areas of Visayas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-shield-heart"></i></div>
+                        <h3 class="card-title">Cultural Resilience</h3>
+                        <div class="card-text">
+                            Despite facing <strong>marginalization</strong>, sea-based groups have preserved rich cultural identities 
+                            deeply connected to marine life, demonstrating remarkable resilience.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: MAINSTREAM GROUPS -->
+    <!-- ========================================= -->
+    <section class="slide" id="mainstream" style="background: var(--mainstream-gradient);">
+        <div class="float-decoration" style="width:300px;height:300px;background:var(--mainstream-accent);bottom:10%;right:10%;"></div>
+        <div class="section-badge badge-ethno reveal"><i class="fa-solid fa-city"></i> Mainstream Groups</div>
+        <h2 class="slide-title reveal delay-1">Lowland & Urban Communities</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Mainstream groups are widely distributed across <strong>Luzon, Visayas, and Mindanao</strong> — 
+            largely integrated into dominant lowland Filipino society with greater exposure to foreign influences.
+        </p>
+
+        <div class="two-col">
+            <div class="reveal-left delay-2">
+                <h3 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 1rem; color: var(--ethno-accent);">
+                    <i class="fa-solid fa-users"></i> Major Ethnolinguistic Groups
+                </h3>
+                <div class="icon-strip" style="margin-bottom: 1.5rem;">
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-t"></i></div>
+                        <span>Tagalog</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-c"></i></div>
+                        <span>Cebuano</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-i"></i></div>
+                        <span>Ilocano</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-k"></i></div>
+                        <span>Kapampangan</span>
+                    </div>
+                    <div class="icon-strip-item">
+                        <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-h"></i></div>
+                        <span>Hiligaynon</span>
+                    </div>
+                </div>
+
+                <div class="info-card card-accent-green">
+                    <div class="card-icon icon-green"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="card-title">Geographic Spread</h3>
+                    <div class="card-text">
+                        <ul>
+                            <li>Predominantly lowland & urban settlements</li>
+                            <li>Distributed across Luzon, Visayas, & Mindanao</li>
+                            <li>Largest populations among all ethnolinguistic groups</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-right delay-3">
+                <div class="content-grid" style="gap: 1rem;">
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-industry"></i></div>
+                        <h3 class="card-title">Diverse Livelihoods</h3>
+                        <div class="card-text">
+                            <ul>
+                                <li>Agriculture, trade, industry & services</li>
+                                <li>Mixed modern and traditional economies</li>
+                                <li>Urban and rural occupations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-globe"></i></div>
+                        <h3 class="card-title">Cultural Influences</h3>
+                        <div class="card-text">
+                            Cultural practices influenced by <strong>Spanish and American colonization</strong>. 
+                            Use of major Philippine languages spoken nationwide. While considered mainstream, 
+                            they still retain <strong>unique traditions, dialects, and regional identities</strong>.
+                        </div>
+                    </div>
+                    <div class="info-card card-accent-green">
+                        <div class="card-icon icon-green"><i class="fa-solid fa-language"></i></div>
+                        <h3 class="card-title">Linguistic Heritage</h3>
+                        <div class="card-text">
+                            Major languages like Tagalog, Cebuano, and Ilocano are among the most widely spoken, 
+                            forming the basis of <strong>Filipino national identity</strong> and cross-regional communication.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: COMPARISON TABLE -->
+    <!-- ========================================= -->
+    <section class="slide" id="comparison" style="background: var(--ethno-gradient);">
+        <div class="section-badge badge-ethno reveal"><i class="fa-solid fa-chart-bar"></i> Comparative Analysis</div>
+        <h2 class="slide-title reveal delay-1">Comparing Ethnolinguistic Groups</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Understanding the similarities and differences between highlanders, sea-based, and mainstream groups 
+            promotes respect for cultural diversity and Indigenous Peoples.
+        </p>
+
+        <div class="comparison-table-wrapper reveal delay-3">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th><i class="fa-solid fa-list"></i> Aspect</th>
+                        <th><i class="fa-solid fa-mountain"></i> Highlanders</th>
+                        <th><i class="fa-solid fa-water"></i> Sea-Based Groups</th>
+                        <th><i class="fa-solid fa-city"></i> Mainstream Groups</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><i class="fa-solid fa-location-dot" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Location</td>
+                        <td>Mountainous & upland areas</td>
+                        <td>Coastal & island areas</td>
+                        <td>Lowland & urban areas</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-briefcase" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Livelihood</td>
+                        <td>Farming, hunting</td>
+                        <td>Fishing, seafaring, boat-making</td>
+                        <td>Agriculture, trade, industry, services</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-users" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Population Size</td>
+                        <td>Smaller communities</td>
+                        <td>Small to moderate</td>
+                        <td>Large populations</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-masks-theater" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Cultural Preservation</td>
+                        <td><span style="color: var(--ethno-accent); font-weight: 600;">Strong</span></td>
+                        <td><span style="color: var(--ethno-accent); font-weight: 600;">Strong</span></td>
+                        <td><span style="color: var(--ancient-accent); font-weight: 600;">Moderate</span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-globe" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>External Influence</td>
+                        <td><span style="color: var(--ethno-accent); font-weight: 600;">Minimal</span></td>
+                        <td><span style="color: var(--ancient-accent); font-weight: 600;">Moderate</span></td>
+                        <td><span style="color: var(--women-accent); font-weight: 600;">High</span></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-people-group" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Social Structure</td>
+                        <td>Kinship & clan-based</td>
+                        <td>Close-knit family units</td>
+                        <td>Mixed modern & traditional</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa-solid fa-comment" style="color:var(--ethno-accent); margin-right:0.5rem;"></i>Examples</td>
+                        <td>Ifugao, Bontoc, Kalinga, T'boli, Manobo</td>
+                        <td>Badjao, Sama, Tausug, Yakan</td>
+                        <td>Tagalog, Cebuano, Ilocano, Kapampangan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="takeaway-box reveal delay-4" style="border-color: rgba(0,184,148,0.2); background: linear-gradient(135deg, rgba(0,184,148,0.06), rgba(0,100,80,0.06));">
+            <h4><i class="fa-solid fa-lightbulb" style="color: var(--ethno-accent);"></i> Key Takeaway</h4>
+            <p>
+                The ethnolinguistic groups of the Philippines reflect the country's <strong>rich cultural diversity</strong> shaped by 
+                geography and history. Understanding these differences promotes <strong>respect for Indigenous Peoples</strong> 
+                and highlights the importance of protecting cultural heritage while fostering national unity.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- SLIDE: SUMMARY / CONCLUSION -->
+    <!-- ========================================= -->
+    <section class="slide" id="summary" style="background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 30%, #1e293b 60%, #042f2e 100%);">
+        <div class="float-decoration" style="width:250px;height:250px;background:var(--ancient-accent);top:20%;left:10%;"></div>
+        <div class="float-decoration" style="width:200px;height:200px;background:var(--women-accent);bottom:20%;right:15%;"></div>
+        <div class="section-badge reveal" style="background: rgba(255,255,255,0.06); color: white; border-color: rgba(255,255,255,0.15);">
+            <i class="fa-solid fa-flag-checkered"></i> Summary
+        </div>
+        <h2 class="slide-title reveal delay-1">Key Takeaways</h2>
+        <p class="slide-subtitle reveal delay-2">
+            This presentation reveals the depth, sophistication, and diversity of Filipino cultural heritage — 
+            foundations that continue to shape Philippine society today.
+        </p>
+
+        <div class="content-grid grid-3 reveal delay-3">
+            <div class="info-card card-accent-gold" style="text-align: center;">
+                <i class="fa-solid fa-landmark" style="font-size: 2rem; color: var(--ancient-accent); margin-bottom: 1rem;"></i>
+                <h3 class="card-title">Ancient Society</h3>
+                <div class="card-text">
+                    <p>Independent governance through the <strong>barangay system</strong>, sustainable economic practices, 
+                    and customary laws that emphasized <strong>community, cooperation, and equality</strong>.</p>
+                </div>
+            </div>
+            <div class="info-card card-accent-pink" style="text-align: center;">
+                <i class="fa-solid fa-venus" style="font-size: 2rem; color: var(--women-accent); margin-bottom: 1rem;"></i>
+                <h3 class="card-title">Role of Women</h3>
+                <div class="card-text">
+                    <p>Women enjoyed <strong>remarkable equality</strong> — owning property, engaging in trade, 
+                    and leading spiritual life as <strong>babaylan</strong>. A progressive culture that valued balance and dignity.</p>
+                </div>
+            </div>
+            <div class="info-card card-accent-green" style="text-align: center;">
+                <i class="fa-solid fa-earth-asia" style="font-size: 2rem; color: var(--ethno-accent); margin-bottom: 1rem;"></i>
+                <h3 class="card-title">Ethnolinguistic Diversity</h3>
+                <div class="card-text">
+                    <p>Highlanders, sea-based, and mainstream groups showcase the <strong>rich cultural tapestry</strong> 
+                    of the Philippines, shaped by geography, tradition, and history.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="takeaway-box reveal delay-4">
+            <h4><i class="fa-solid fa-quote-left"></i> Final Reflection</h4>
+            <p>
+                These cultural elements form the <strong>foundation of Filipino identity</strong> and continue to influence 
+                Philippine society today. Understanding our heritage promotes respect for diversity and encourages 
+                critical reflection on how historical and cultural factors shape who we are as a nation.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- REFERENCES -->
+    <!-- ========================================= -->
+    <section class="slide" id="references" style="background: linear-gradient(135deg, #0d1117 0%, #111827 50%, #1a1a2e 100%);">
+        <div class="float-decoration" style="width:200px;height:200px;background:var(--ancient-accent);top:15%;right:10%;"></div>
+        <div class="float-decoration" style="width:180px;height:180px;background:var(--ethno-accent);bottom:20%;left:8%;"></div>
+        <div class="section-badge reveal" style="background: rgba(255,255,255,0.06); color: white; border-color: rgba(255,255,255,0.15);">
+            <i class="fa-solid fa-book"></i> References
+        </div>
+        <h2 class="slide-title reveal delay-1">Reference List</h2>
+        <p class="slide-subtitle reveal delay-2">
+            Sources and materials consulted for this presentation.
+        </p>
+
+        <div class="content-grid grid-1 reveal delay-3" style="max-width: 900px; margin: 0 auto;">
+            <div class="info-card card-accent-gold" style="text-align: left;">
+                <h3 class="card-title" style="margin-bottom: 1.2rem;"><i class="fa-solid fa-bookmark" style="color: var(--ancient-accent); margin-right: 0.5rem;"></i>Course Materials</h3>
+                <div class="card-text" style="line-height: 2;">
+                    <ol style="padding-left: 1.2rem; margin: 0;">
+                        <li style="margin-bottom: 0.8rem;">
+                            Zulueta, F. M., & Nebres, A. M. (2003). <em>Philippine History and Government Through the Years</em>. National Bookstore.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            Agoncillo, T. A. (1990). <em>History of the Filipino People</em> (8th ed.). Garotech Publishing.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            Scott, W. H. (1994). <em>Barangay: Sixteenth-Century Philippine Culture and Society</em>. Ateneo de Manila University Press.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            Jocano, F. L. (1975). <em>Philippine Prehistory: An Anthropological Overview of the Beginnings of Filipino Society and Culture</em>. Philippine Center for Advanced Studies.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            National Commission for Culture and the Arts (NCCA). (n.d.). <em>Philippine Indigenous Peoples Ethnography</em>. Retrieved from <span style="color: var(--ancient-accent);">ncca.gov.ph</span>
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            Mangahas, F., & Llaguno, J. R. (Eds.). (2006). <em>Centennial Crossings: Readings on Babaylan Feminism in the Philippines</em>. C&E Publishing.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            PICPE-PIT Course Module 2 — <em>Ancient Filipino Society, Role of Women, and Ethnolinguistic Distribution of Indigenous Peoples</em>. (Lecture material, n.d.).
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
+    <footer class="footer-slide">
+        <h2 style="background: linear-gradient(90deg, var(--ancient-accent), var(--women-accent), var(--ethno-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            Presentation Complete
+        </h2>
+        <p>Ancient Filipino Society, Role of Women & Ethnolinguistic Distribution of Indigenous Peoples</p>
+        <div class="footer-credits">
+            <p>Philippine Culture, Society & Politics</p>
+        </div>
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
+    <script>
+        // ===== SCROLL PROGRESS BAR =====
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ===== MOBILE NAV TOGGLE =====
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Close nav on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // ===== INTERSECTION OBSERVER FOR REVEAL ANIMATIONS =====
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== ACTIVE NAV LINK & SLIDE DOTS =====
+        const slides = document.querySelectorAll('.slide, .footer-slide');
+        const navAnchors = document.querySelectorAll('.nav-links a');
+        const slideDots = document.querySelectorAll('.slide-dot');
+
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+
+                    // Update nav links
+                    navAnchors.forEach(a => {
+                        a.classList.remove('active');
+                        if (a.getAttribute('href') === '#' + id) {
+                            a.classList.add('active');
+                        }
+                    });
+
+                    // Update slide dots
+                    slideDots.forEach(dot => {
+                        dot.classList.remove('active');
+                        if (dot.dataset.target === id) {
+                            dot.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        slides.forEach(slide => slideObserver.observe(slide));
+
+        // ===== SLIDE DOT CLICK NAVIGATION =====
+        slideDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const target = document.getElementById(dot.dataset.target);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ===== KEYBOARD NAVIGATION =====
+        const slideIds = Array.from(document.querySelectorAll('.slide')).map(s => s.id);
+        document.addEventListener('keydown', (e) => {
+            const currentSlide = slideIds.find(id => {
+                const el = document.getElementById(id);
+                const rect = el.getBoundingClientRect();
+                return rect.top >= -100 && rect.top <= window.innerHeight / 2;
+            });
+
+            const currentIndex = slideIds.indexOf(currentSlide);
+
+            if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                e.preventDefault();
+                const next = slideIds[Math.min(currentIndex + 1, slideIds.length - 1)];
+                document.getElementById(next)?.scrollIntoView({ behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                const prev = slideIds[Math.max(currentIndex - 1, 0)];
+                document.getElementById(prev)?.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
