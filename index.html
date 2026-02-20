@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ancient Filipino Society & Cultural Heritage</title>
+    <title>Hispanic Filipinos & Ethnolinguistic Distribution of IPs</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
@@ -32,17 +32,17 @@
             /* Highlanders — Earthy Forest Green */
             --highland-accent: #4ade80;
             --highland-accent-light: #86efac;
-            --highland-gradient: linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%);
+            --highland-gradient: linear-gradient(135deg, #0d1117 0%, #151d2c 50%, #1a2332 100%);
 
             /* Sea-Based — Ocean Blue */
             --sea-accent: #38bdf8;
             --sea-accent-light: #7dd3fc;
-            --sea-gradient: linear-gradient(135deg, #0c1a2e 0%, #0c4a6e 50%, #075985 100%);
+            --sea-gradient: linear-gradient(135deg, #0d1117 0%, #1a1520 50%, #1e1a2e 100%);
 
             /* Mainstream — Warm Amber */
             --mainstream-accent: #fbbf24;
             --mainstream-accent-light: #fcd34d;
-            --mainstream-gradient: linear-gradient(135deg, #1c1410 0%, #422006 50%, #713f12 100%);
+            --mainstream-gradient: linear-gradient(135deg, #0d1117 0%, #111827 50%, #0f172a 100%);
 
             /* Neutral */
             --bg-dark: #0d1117;
@@ -1097,34 +1097,50 @@
 
         /* ===== ETHNO SUB-GROUP COLOR OVERRIDES ===== */
 
-        /* Highlanders — Forest Green */
-        #highlanders .section-badge { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; border-color: rgba(74,222,128,0.2) !important; }
+        /* Highlanders — Forest Green on neutral dark */
+        #highlanders .section-badge { background: rgba(74,222,128,0.15) !important; color: var(--highland-accent) !important; border-color: rgba(74,222,128,0.3) !important; }
+        #highlanders .slide-title { color: var(--highland-accent-light); }
         #highlanders .slide-subtitle strong { color: var(--highland-accent); }
+        #highlanders .info-card { background: rgba(74,222,128,0.06) !important; border-color: rgba(74,222,128,0.15) !important; }
+        #highlanders .info-card:hover { background: rgba(74,222,128,0.1) !important; border-color: rgba(74,222,128,0.25) !important; }
         #highlanders .info-card::before { background: linear-gradient(90deg, var(--highland-accent), transparent) !important; }
-        #highlanders .info-card .card-icon { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; }
+        #highlanders .info-card .card-icon { background: rgba(74,222,128,0.15) !important; color: var(--highland-accent) !important; }
+        #highlanders .card-title { color: var(--highland-accent-light) !important; }
         #highlanders .card-text ul li::before { background: var(--highland-accent) !important; }
         #highlanders h3[style] { color: var(--highland-accent) !important; }
-        #highlanders .icon-circle { background: rgba(74,222,128,0.12) !important; color: var(--highland-accent) !important; }
-        #highlanders .takeaway-box { border-color: rgba(74,222,128,0.2) !important; background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(22,101,52,0.06)) !important; }
+        #highlanders .icon-circle { background: rgba(74,222,128,0.15) !important; color: var(--highland-accent) !important; }
+        #highlanders .takeaway-box { border-color: rgba(74,222,128,0.25) !important; background: linear-gradient(135deg, rgba(74,222,128,0.08), rgba(22,101,52,0.08)) !important; }
         #highlanders .takeaway-box h4 i { color: var(--highland-accent) !important; }
+        #highlanders .takeaway-box h4 { color: var(--highland-accent-light) !important; }
+        #highlanders .float-decoration { background: var(--highland-accent) !important; }
 
-        /* Sea-Based — Ocean Blue */
-        #sea-based .section-badge { background: rgba(56,189,248,0.12) !important; color: var(--sea-accent) !important; border-color: rgba(56,189,248,0.2) !important; }
+        /* Sea-Based — Ocean Blue on neutral dark */
+        #sea-based .section-badge { background: rgba(56,189,248,0.15) !important; color: var(--sea-accent) !important; border-color: rgba(56,189,248,0.3) !important; }
+        #sea-based .slide-title { color: var(--sea-accent-light); }
         #sea-based .slide-subtitle strong { color: var(--sea-accent); }
+        #sea-based .info-card { background: rgba(56,189,248,0.06) !important; border-color: rgba(56,189,248,0.15) !important; }
+        #sea-based .info-card:hover { background: rgba(56,189,248,0.1) !important; border-color: rgba(56,189,248,0.25) !important; }
         #sea-based .info-card::before { background: linear-gradient(90deg, var(--sea-accent), transparent) !important; }
-        #sea-based .info-card .card-icon { background: rgba(56,189,248,0.12) !important; color: var(--sea-accent) !important; }
+        #sea-based .info-card .card-icon { background: rgba(56,189,248,0.15) !important; color: var(--sea-accent) !important; }
+        #sea-based .card-title { color: var(--sea-accent-light) !important; }
         #sea-based .card-text ul li::before { background: var(--sea-accent) !important; }
         #sea-based h3[style] { color: var(--sea-accent) !important; }
-        #sea-based .icon-circle { background: rgba(56,189,248,0.15) !important; color: #7dd3fc !important; }
+        #sea-based .icon-circle { background: rgba(56,189,248,0.18) !important; color: var(--sea-accent-light) !important; }
+        #sea-based .float-decoration { background: var(--sea-accent) !important; }
 
-        /* Mainstream — Warm Amber */
-        #mainstream .section-badge { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; border-color: rgba(251,191,36,0.2) !important; }
+        /* Mainstream — Warm Amber on neutral dark */
+        #mainstream .section-badge { background: rgba(251,191,36,0.15) !important; color: var(--mainstream-accent) !important; border-color: rgba(251,191,36,0.3) !important; }
+        #mainstream .slide-title { color: var(--mainstream-accent-light); }
         #mainstream .slide-subtitle strong { color: var(--mainstream-accent); }
+        #mainstream .info-card { background: rgba(251,191,36,0.06) !important; border-color: rgba(251,191,36,0.15) !important; }
+        #mainstream .info-card:hover { background: rgba(251,191,36,0.1) !important; border-color: rgba(251,191,36,0.25) !important; }
         #mainstream .info-card::before { background: linear-gradient(90deg, var(--mainstream-accent), transparent) !important; }
-        #mainstream .info-card .card-icon { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; }
+        #mainstream .info-card .card-icon { background: rgba(251,191,36,0.15) !important; color: var(--mainstream-accent) !important; }
+        #mainstream .card-title { color: var(--mainstream-accent-light) !important; }
         #mainstream .card-text ul li::before { background: var(--mainstream-accent) !important; }
         #mainstream h3[style] { color: var(--mainstream-accent) !important; }
-        #mainstream .icon-circle { background: rgba(251,191,36,0.12) !important; color: var(--mainstream-accent) !important; }
+        #mainstream .icon-circle { background: rgba(251,191,36,0.15) !important; color: var(--mainstream-accent) !important; }
+        #mainstream .float-decoration { background: var(--mainstream-accent) !important; }
 
         /* Comparison table — color-coded column headers */
         .comparison-table thead th:nth-child(2) { color: var(--highland-accent) !important; }
@@ -1180,7 +1196,7 @@
     <!-- ========================================= -->
     <section class="slide" id="hero">
         <div class="hero-overline reveal">Philippine Indigenous Communities & Peace Education</div>
-        <h1 class="hero-title reveal delay-1">Ancient Filipino Society<br>& Cultural Heritage</h1>
+        <h1 class="hero-title reveal delay-1">Hispanic Filipinos<br>& Ethnolinguistic Distribution of IPs</h1>
         <p class="hero-desc reveal delay-2">
             A visual presentation summarizing key information on ancient Filipino society, 
             the role of women in pre-colonial communities, and the ethnolinguistic diversity 
