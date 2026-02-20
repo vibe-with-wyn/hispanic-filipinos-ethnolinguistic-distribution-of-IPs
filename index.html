@@ -563,6 +563,86 @@
             border: 1px solid rgba(226,183,20,0.1);
         }
 
+        /* ===== HOVER IMAGE CIRCLE ===== */
+        .pyramid-level {
+            position: relative;
+        }
+
+        .magnify-glass {
+            position: absolute;
+            top: -90px;
+            right: -110px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--ancient-accent);
+            box-shadow: 0 0 25px rgba(226,183,20,0.3), 0 0 60px rgba(226,183,20,0.08);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+            z-index: 10;
+            background: var(--bg-dark);
+        }
+
+        .magnify-glass img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            filter: sepia(30%) contrast(1.1);
+        }
+
+        .pyramid-level:hover .magnify-glass {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger positions for each level */
+        .lvl-1 .magnify-glass {
+            top: -90px;
+            right: -120px;
+        }
+
+        .lvl-2 .magnify-glass {
+            top: -85px;
+            right: -115px;
+        }
+
+        .lvl-3 .magnify-glass {
+            top: -80px;
+            right: -105px;
+        }
+
+        .lvl-4 .magnify-glass {
+            top: -75px;
+            right: -100px;
+        }
+
+        @media (max-width: 768px) {
+            .magnify-glass {
+                width: 130px;
+                height: 130px;
+                top: -70px !important;
+                right: -30px !important;
+            }
+
+            .icon-strip-item .magnify-glass {
+                width: 120px;
+                height: 120px;
+                top: -130px !important;
+                left: 50% !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .magnify-glass {
+                display: none;
+            }
+        }
+
         /* ===== TWO COLUMN LAYOUT ===== */
         .two-col {
             display: grid;
@@ -1072,6 +1152,32 @@
             flex-direction: column;
             align-items: center;
             gap: 0.4rem;
+            position: relative;
+        }
+
+        .icon-strip-item:hover .magnify-glass {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .icon-strip-item .magnify-glass {
+            width: 160px;
+            height: 160px;
+            top: -170px;
+            left: 50%;
+            transform: scale(0) translateX(-50%);
+            transform-origin: bottom center;
+            border-color: var(--ethno-accent);
+            box-shadow: 0 0 25px rgba(0,184,148,0.3), 0 0 60px rgba(0,184,148,0.08);
+        }
+
+        .icon-strip-item:hover .magnify-glass {
+            transform: scale(1) translateX(-50%);
+        }
+
+        #sea-based .icon-strip-item .magnify-glass {
+            border-color: #74b9ff;
+            box-shadow: 0 0 25px rgba(9,132,227,0.3), 0 0 60px rgba(9,132,227,0.08);
         }
 
         .icon-strip-item .icon-circle {
@@ -1264,12 +1370,18 @@
                             <div class="level-title">Datu</div>
                             <div class="level-desc">Ruler & Chieftain — supreme authority</div>
                         </div>
+                        <div class="magnify-glass">
+                            <img src="img\political\datu.jpg" alt="Datu — Pre-colonial Filipino nobility" loading="lazy">
+                        </div>
                     </div>
                     <div class="pyramid-level lvl-2">
                         <div>
                             <div class="level-rank"><i class="fa-solid fa-shield-halved"></i> Noble</div>
                             <div class="level-title">Maharlika</div>
                             <div class="level-desc">Noble warriors who advised the datu</div>
+                        </div>
+                        <div class="magnify-glass">
+                            <img src="img\political\maharlika.jpg" alt="Maharlika" loading="lazy">
                         </div>
                     </div>
                     <div class="pyramid-level lvl-3">
@@ -1278,12 +1390,18 @@
                             <div class="level-title">Timawa</div>
                             <div class="level-desc">Free commoners who paid tribute</div>
                         </div>
+                        <div class="magnify-glass">
+                            <img src="img\political\timawa.jpg" alt="Timawa" loading="lazy">
+                        </div>
                     </div>
                     <div class="pyramid-level lvl-4">
                         <div>
                             <div class="level-rank"><i class="fa-solid fa-link"></i> Dependent</div>
                             <div class="level-title">Alipin</div>
                             <div class="level-desc">Dependents — namamahay & sagigilid</div>
+                        </div>
+                        <div class="magnify-glass">
+                            <img src="img\political\alipin.jpg" alt="Alipin — Visayan dependent class from the Boxer Codex" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -1662,30 +1780,51 @@
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-mountain-sun"></i></div>
                         <span>Ifugao</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Ifugao_women_in_Banaue.jpg/400px-Ifugao_women_in_Banaue.jpg" alt="Ifugao women in traditional dress" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-mountain"></i></div>
                         <span>Bontoc</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Antonio%2C_Chief_of_Bontoc_Igorot_%28c.1915%29.jpg/400px-Antonio%2C_Chief_of_Bontoc_Igorot_%28c.1915%29.jpg" alt="Chief of Bontoc Igorot (c.1915)" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-shield"></i></div>
                         <span>Kalinga</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/A_typical_Kalinga_couple_%281913%29.jpg/400px-A_typical_Kalinga_couple_%281913%29.jpg" alt="A typical Kalinga couple (1913)" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-gem"></i></div>
                         <span>Ibaloi</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lola_teleng_from_itogon_benguet.jpg/500px-Lola_teleng_from_itogon_benguet.jpg" alt="Ibaloi people (1896)" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-tree"></i></div>
                         <span>Manobo</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Women_in_traditional_Manobo_dress_%28Kaamulan_Festival_2017%2C_Bukidnon%2C_Philippines%29.jpg/400px-Women_in_traditional_Manobo_dress_%28Kaamulan_Festival_2017%2C_Bukidnon%2C_Philippines%29.jpg" alt="Women in traditional Manobo dress" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-palette"></i></div>
                         <span>T'boli</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/T%27boli_woman.jpg/400px-T%27boli_woman.jpg" alt="T'boli woman in traditional dress" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-drum"></i></div>
                         <span>Bagobo</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Bagobo_woman.jpg/400px-Bagobo_woman.jpg" alt="Bagobo woman in traditional attire" loading="lazy">
+                        </div>
                     </div>
                 </div>
 
@@ -1722,18 +1861,30 @@
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-sailboat"></i></div>
                         <span>Badjao</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Bajau_Laut.jpg/400px-Bajau_Laut.jpg" alt="Bajau Laut sea nomads" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-ship"></i></div>
                         <span>Sama</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Sabah_West_Coast_Bajau_women_in_traditional_dress.jpg/250px-Sabah_West_Coast_Bajau_women_in_traditional_dress.jpg" alt="Sama woman with traditional sun protection" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-anchor"></i></div>
                         <span>Tausug</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Tausug_warriors_in_full_regalia._Image_from_page_109_of_%22The_Philippine_Islands%22_%281899%29.jpg/400px-Tausug_warriors_in_full_regalia._Image_from_page_109_of_%22The_Philippine_Islands%22_%281899%29.jpg" alt="Tausug warriors in full regalia (1899)" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(9,132,227,0.15); color: #74b9ff;"><i class="fa-solid fa-dharmachakra"></i></div>
                         <span>Yakan</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Badju_Yakan_attire_Tenun_Ambalang_AusalinA.jpg/400px-Badju_Yakan_attire_Tenun_Ambalang_AusalinA.jpg" alt="Yakan traditional attire" loading="lazy">
+                        </div>
                     </div>
                 </div>
 
@@ -1807,22 +1958,37 @@
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-t"></i></div>
                         <span>Tagalog</span>
+                        <div class="magnify-glass">
+                            <img src="https://www.csueastbay.edu/museum/files/images/vm-philippines/people/tagalog.jpg" alt="Tagalog people (1885)" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-c"></i></div>
                         <span>Cebuano</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Sinulog_Festival_Costumes.jpg/400px-Sinulog_Festival_Costumes.jpg" alt="Sinulog Festival - Cebuano culture" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-i"></i></div>
                         <span>Ilocano</span>
+                        <div class="magnify-glass">
+                            <img src="https://lh3.googleusercontent.com/proxy/5FtCpgjMx_c-AfEm0XIPqaX0vu3MKKndFcuZ8Qx-YLQVdHJAFFvWvBg28_aVzgqN-VUTT7VPj4asGeJBjrWgxECfMLqTtrANF50YqQ" alt="Ilocano woman combing cotton yarn" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-k"></i></div>
                         <span>Kapampangan</span>
+                        <div class="magnify-glass">
+                            <img src="https://explorepampanga.wordpress.com/wp-content/uploads/2015/12/pampanga-sinukwan-festival4.jpg" alt="Kapampangan traditional folklore" loading="lazy">
+                        </div>
                     </div>
                     <div class="icon-strip-item">
                         <div class="icon-circle" style="background: rgba(0,184,148,0.12); color: var(--ethno-accent);"><i class="fa-solid fa-h"></i></div>
                         <span>Hiligaynon</span>
+                        <div class="magnify-glass">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Iloilo_Miagao_nine_Weavers_Hablon_A.jpg/400px-Iloilo_Miagao_nine_Weavers_Hablon_A.jpg" alt="Hiligaynon hablon weavers" loading="lazy">
+                        </div>
                     </div>
                 </div>
 
