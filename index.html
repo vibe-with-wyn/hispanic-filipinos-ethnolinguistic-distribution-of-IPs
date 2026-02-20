@@ -618,27 +618,86 @@
             right: -100px;
         }
 
+        /* ===== MOBILE IMAGE DISPLAY (static thumbnails on touch screens) ===== */
         @media (max-width: 768px) {
-            .magnify-glass {
-                width: 130px;
-                height: 130px;
-                top: -70px !important;
-                right: -30px !important;
+            /* Pyramid level images — always-visible thumbnail on right */
+            .pyramid-level .magnify-glass {
+                position: static !important;
+                width: 60px !important;
+                height: 60px !important;
+                opacity: 1 !important;
+                transform: none !important;
+                border-radius: 10px !important;
+                flex-shrink: 0;
+                transition: none !important;
+                pointer-events: auto;
+                top: auto !important;
+                right: auto !important;
             }
 
+            .pyramid-level {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                width: 95% !important;
+                padding: 0.75rem 1rem;
+            }
+
+            /* Icon-strip images — always-visible below each icon */
             .icon-strip-item .magnify-glass {
-                width: 120px;
-                height: 120px;
-                top: -130px !important;
-                left: 50% !important;
-                right: auto !important;
+                position: static !important;
+                width: 70px !important;
+                height: 70px !important;
+                border-radius: 10px !important;
+                opacity: 1 !important;
+                transform: none !important;
+                border-width: 2px !important;
+                box-shadow: none !important;
+                margin-top: 0.3rem;
+                transition: none !important;
+                pointer-events: auto;
+                top: auto !important;
+                left: auto !important;
+            }
+
+            .icon-strip {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 0.8rem;
+                justify-items: center;
+            }
+
+            .icon-strip-item {
+                width: 100%;
+                align-items: center;
             }
         }
 
         @media (max-width: 480px) {
-            .magnify-glass {
-                display: none;
+            .pyramid-level .magnify-glass {
+                width: 52px !important;
+                height: 52px !important;
             }
+
+            .icon-strip-item .magnify-glass {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .icon-strip {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 0.6rem;
+            }
+        }
+
+        /* Touch-active state for tablets (JS controlled) */
+        .touch-active .magnify-glass {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+        .icon-strip-item.touch-active .magnify-glass {
+            transform: scale(1) translateX(-50%) !important;
         }
 
         /* ===== TWO COLUMN LAYOUT ===== */
@@ -1149,24 +1208,69 @@
 
             .two-col {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
-
-            .pyramid-level { width: 95% !important; }
 
             .slide-indicators { display: none; }
 
             .hero-sections { flex-direction: column; align-items: center; }
 
+            .content-grid.grid-2,
             .content-grid.grid-3,
             .content-grid.grid-4 {
                 grid-template-columns: 1fr;
             }
+
+            .babaylan-feature {
+                width: 100%;
+            }
+
+            .pyramid-container {
+                align-items: stretch;
+            }
+
+            .comparison-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .comparison-table {
+                min-width: 550px;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 6vw, 3rem);
+            }
+
+            .slide-title {
+                font-size: clamp(1.5rem, 5vw, 2.2rem);
+            }
+
+            .slide-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .stat-pills {
+                flex-wrap: wrap;
+            }
+
+            .role-highlight {
+                padding: 0.8rem;
+            }
+
+            .takeaway-box {
+                padding: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
-            :root { --slide-padding: 1.2rem; }
-            .slide-title { font-size: 1.8rem; }
+            :root { --slide-padding: 1rem; }
+            .slide-title { font-size: 1.6rem; }
+            .hero-title { font-size: 1.7rem; }
+            .card-title { font-size: 1rem; }
+            .info-card { padding: 1.2rem; }
+            .stat-pill { font-size: 0.72rem; padding: 0.3rem 0.8rem; }
+            .section-badge { font-size: 0.72rem; }
         }
 
         /* ===== ETHNO GROUP ICONS STRIP ===== */
@@ -2397,6 +2501,40 @@
                 }
             });
         });
+
+        // ===== TOUCH SUPPORT FOR IMAGE POPUPS (tablets) =====
+        const isTouchDevice = () => window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+        function setupTouchImagePop() {
+            if (!isTouchDevice()) return;
+            // Only apply hover-popup touch behavior on tablets (>768px)
+            // On mobile (<=768px) images are already shown as static thumbnails
+            if (window.innerWidth <= 768) return;
+
+            const hoverItems = document.querySelectorAll('.pyramid-level, .icon-strip-item');
+            let currentActive = null;
+
+            hoverItems.forEach(item => {
+                item.addEventListener('touchstart', (e) => {
+                    e.stopPropagation();
+                    if (currentActive && currentActive !== item) {
+                        currentActive.classList.remove('touch-active');
+                    }
+                    item.classList.toggle('touch-active');
+                    currentActive = item.classList.contains('touch-active') ? item : null;
+                }, { passive: true });
+            });
+
+            document.addEventListener('touchstart', () => {
+                if (currentActive) {
+                    currentActive.classList.remove('touch-active');
+                    currentActive = null;
+                }
+            }, { passive: true });
+        }
+
+        setupTouchImagePop();
+        window.addEventListener('resize', setupTouchImagePop);
 
         // ===== KEYBOARD NAVIGATION =====
         const slideIds = Array.from(document.querySelectorAll('.slide')).map(s => s.id);
